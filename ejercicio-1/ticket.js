@@ -5,5 +5,7 @@ const precio = 189;      // precio por unidad, sin IVA
 const cantidad = 2;
 const porcentajeIva = 21;
 
-let subtotal = precio * cantidad;
+const subtotal = precio * cantidad;
 console.log ("Subtotal: " + subtotal + "€");
+const iva = subtotal * (porcentajeIva / 100);
+console.log ("IVA: " + iva + "€");
