@@ -1,0 +1,1 @@
+Cómo declarar el uso de la IA
