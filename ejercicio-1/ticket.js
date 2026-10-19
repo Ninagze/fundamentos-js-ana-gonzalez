@@ -9,3 +9,6 @@ const subtotal = precio * cantidad;
 console.log ("Subtotal: " + subtotal + "€");
 const iva = subtotal * (porcentajeIva / 100);
 console.log ("IVA: " + iva + "€");
+const total = subtotal + iva;
+console.log ("Total: " + total + "€");
+
