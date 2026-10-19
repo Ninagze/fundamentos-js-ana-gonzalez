@@ -8,7 +8,7 @@ Envío	El envío cuesta 4.95 €. Es gratis si el importe, después de aplicar e
 
 Total	Importe − descuento + envío */
 
-const importe = 52;
+const importe = 50.01;
 const precioEnvio = 4.95;
 let descuento = 0;
 
@@ -30,4 +30,7 @@ if (importeConDescuento >= 50) {
 }  
 console.log("Envío: " + envio.toFixed(2) + "€");
 console.log("Importe con descuento: " + importeConDescuento.toFixed(2) + "€");
+
+const total = importeConDescuento + envio;
+console.log("Total: " + total.toFixed(2) + "€");
 
