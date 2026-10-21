@@ -14,9 +14,9 @@ let descuento = 0;
 
 if (importe > 100) {
     descuento = importe * 0.10;
-}else if (importe > 50) {
+} else if (importe > 50) {
     descuento = importe * 0.05;
-}else {
+} else {
     descuento = 0;
 }
 console.log("Descuento: " + descuento.toFixed(2) + "€");
