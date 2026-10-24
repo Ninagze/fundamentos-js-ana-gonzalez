@@ -8,3 +8,13 @@ function calcularImporteLinea(precio, cantidad) {
     return precio * cantidad;
 }
 console.log("Importe de la línea: " + calcularImporteLinea(precio, cantidad).toFixed(2) + "€");
+
+
+
+const porcentajeIva = 21;
+
+function calcularIVA(importe) {
+    return importe * (porcentajeIva / 100);
+}
+console.log("IVA: " + calcularIVA(378).toFixed(2) + "€");
+console.log("IVA: " + calcularIVA(100).toFixed(2) + "€");
