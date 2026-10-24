@@ -22,3 +22,7 @@ for (let i = 0; i < productos.length; i++) {
         break;
     }   
 }  
+console.log("Producto buscado: " + productoBuscado);
+console.log("Stock del producto: " + stockProducto);
+console.log("Posición del producto: " + posicionProducto);
+console.log("Precio del producto: " + precioProducto);
