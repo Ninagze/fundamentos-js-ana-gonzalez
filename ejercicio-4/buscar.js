@@ -7,3 +7,18 @@ const productos = ["Teclado", "Ratón", "Monitor", "Auriculares", "Webcam"];
 const precios   = [45.99, 19.90, 189.00, 59.95, 34.50];
 const stock     = [10, 25, 3, 0, 7];
 
+let posicionProducto = -1;
+let productoBuscado = "teclado";
+let stockProducto = 0;
+let precioProducto = 0;
+
+
+for (let i = 0; i < productos.length; i++) {
+    if (productos[i].toLowerCase() === productoBuscado.toLowerCase()) {
+        posicionProducto = i;
+        stockProducto = stock[i];
+        precioProducto = precios[i] + "\u20AC";
+        productoBuscado = productos[i];
+        break;
+    }   
+}  
