@@ -22,6 +22,14 @@ for (let i = 0; i < productos.length; i++) {
     }
 }
 
+let agotados = 0;
+
+for (let i = 0; i < stock.length; i++) {
+    if (stock[i] === 0) {
+        agotados++;
+    }
+} 
+console.log("\nProductos agotados: " + agotados); 
 
 
 
