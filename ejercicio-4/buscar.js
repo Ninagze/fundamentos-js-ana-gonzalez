@@ -8,7 +8,7 @@ const precios   = [45.99, 19.90, 189.00, 59.95, 34.50];
 const stock     = [10, 25, 3, 0, 7];
 
 let posicionProducto = -1;
-let productoBuscado = "teclado";
+let productoBuscado = "Teclado";
 let stockProducto = 0;
 let precioProducto = 0;
 
@@ -17,12 +17,15 @@ for (let i = 0; i < productos.length; i++) {
     if (productos[i].toLowerCase() === productoBuscado.toLowerCase()) {
         posicionProducto = i;
         stockProducto = stock[i];
-        precioProducto = precios[i] + "\u20AC";
+        precioProducto = precios[i] + "€";
         productoBuscado = productos[i];
-        break;
     }   
 }  
-console.log("Producto buscado: " + productoBuscado);
-console.log("Stock del producto: " + stockProducto);
-console.log("Posición del producto: " + posicionProducto);
-console.log("Precio del producto: " + precioProducto);
+if (posicionProducto === -1) {
+    console.log("Posicion " + posicionProducto + " " + productoBuscado + " no se encuentra en el catálogo.");
+} else {
+    console.log("Producto buscado: " + productoBuscado);
+    console.log("Stock del producto: " + stockProducto);
+    console.log("Posición del producto: " + posicionProducto);
+    console.log("Precio del producto: " + precioProducto);
+}
