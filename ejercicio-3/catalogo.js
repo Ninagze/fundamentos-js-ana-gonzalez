@@ -16,9 +16,9 @@ const stock     = [10, 25, 3, 0, 7];
 console.log("Catálogo de productos:");
 for (let i = 0; i < productos.length; i++) {
     if (stock[i] === 0) {
-        console.log(productos[i] + " - €" + precios[i] + " - AGOTADO");
+        console.log(productos[i] + " - €" + precios[i].toFixed(2) + " - AGOTADO");
     } else {
-        console.log(productos[i] + " - €" + precios[i] + " - " + stock[i] + " unidades");
+        console.log(productos[i] + " - €" + precios[i].toFixed(2) + " - " + stock[i] + " unidades");
     }
 }
 
@@ -38,7 +38,7 @@ for (let i = 1; i < precios.length; i++) {
         productoMasCaro = i;
     }
 }
-console.log("\nProducto más caro: " + productos[productoMasCaro] + " - €" + precios[productoMasCaro]);
+console.log("\nProducto más caro: " + productos[productoMasCaro] + " - €" + precios[productoMasCaro].toFixed(2));
 
 let valorTotalInventario = 0;
 for (let i = 0; i < productos.length; i++) {
