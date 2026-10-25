@@ -118,8 +118,25 @@ const envio = calcularEnvio(base);
 const total = base + iva + envio;
 
 console.log("Subtotal: " + subtotal.toFixed(2) + " €");
-console.log ("Descuento: -" + descuento.toFixed(2) + " €")
-console.log ("Base imponible: " + base.toFixed(2) + " €")
-console.log ("IVA (21%): " + iva.toFixed(2) + " €")
-console.log("Envío: " + envio.toFixed(2)+ " €")
-console.log("TOTAL: " +total.toFixed(2) + " €")
+console.log ("Descuento: -" + descuento.toFixed(2) + " €");
+console.log ("Base imponible: " + base.toFixed(2) + " €");
+console.log ("IVA (21%): " + iva.toFixed(2) + " €");
+console.log("Envío: " + envio.toFixed(2)+ " €");
+console.log("TOTAL: " +total.toFixed(2) + " €");
+
+console.log("=== STOCK ACTUALIZADO ===");
+
+let texto = "";
+
+for (let k = 0; k < productos.length; k++) {
+    texto = texto + productos[k] + ": " + stock[k] + " · ";
+}
+console.log(texto);
+
+console.log("=== PRODUCTOS AGOTADOS ===");
+
+for (let k = 0; k < productos.length; k++) {
+    if (stock[k] === 0) {
+        console.log(productos[k]);
+    }
+}
