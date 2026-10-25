@@ -70,3 +70,14 @@ function productoMasCaro(productos, precios) {
     return productos[posicion];
 }
 console.log("Producto más caro: " + productoMasCaro(["Teclado", "Ratón", "Monitor", "Auriculares", "Webcam"], [45.99, 19.90, 189.00, 59.95, 34.50]));
+
+
+function valorInventario(precios, stock){
+    let total = 0;
+
+    for (let i = 0;  i < precios.length;  i++){
+        total = total + precios [i] *  stock [i];
+    }
+    return total;
+} 
+console.log("Valor total del inventario: " + valorInventario([45.99, 19.90, 189.00, 59.95, 34.50], [10, 25, 3, 0, 7]).toFixed(2) + "€");
