@@ -92,10 +92,12 @@ for (let i = 0; i < pedidoProductos.length; i++) {
         ticketProductos.push(pedidoProductos[i]);
         ticketCantidades.push(stock[posicion]);
         ticketPrecios.push(precios[posicion]);
+        stock[posicion] = stock[posicion] - stock[posicion];
     } else {
         console.log("Se sirven " + pedidoCantidades[i] + " uds de " + pedidoProductos[i]);
         ticketProductos.push(pedidoProductos[i]);
         ticketCantidades.push(pedidoCantidades[i]);
         ticketPrecios.push(precios[posicion]);
+        stock[posicion] = stock[posicion] -  pedidoCantidades[i];
     }
 }   
