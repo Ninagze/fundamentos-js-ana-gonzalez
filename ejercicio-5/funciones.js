@@ -56,3 +56,17 @@ function contarAgotados(stock) {
     return contador;
 }
 console.log("Número de productos agotados: " + contarAgotados([10, 25, 3, 0, 7]));
+
+
+function productoMasCaro(productos, precios) {
+    let posicion = 0;
+
+    for (let i = 1; i < precios.length; i++) {
+        if (precios[i] > precios[posicion]) {
+            posicion = i;
+        }
+    }
+
+    return productos[posicion];
+}
+console.log("Producto más caro: " + productoMasCaro(["Teclado", "Ratón", "Monitor", "Auriculares", "Webcam"], [45.99, 19.90, 189.00, 59.95, 34.50]));
