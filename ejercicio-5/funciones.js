@@ -11,10 +11,27 @@ console.log("Importe de la línea: " + calcularImporteLinea(precio, cantidad).to
 
 
 
-const porcentajeIva = 21;
+const porcentajeIva = 10;
 
 function calcularIVA(importe) {
     return importe * (porcentajeIva / 100);
 }
 console.log("IVA: " + calcularIVA(378).toFixed(2) + "€");
 console.log("IVA: " + calcularIVA(100).toFixed(2) + "€");
+
+
+function calcularDescuento(importe) {
+    let descuento = 0;
+
+    if (importe > 100) {
+        descuento = importe * 0.10;
+    } else if (importe > 50) {
+        descuento = importe * 0.05;
+    } else {
+        descuento = 0;
+    }
+
+    return descuento;
+}
+console.log("Descuento: " + calcularDescuento(120).toFixed(2) + "€");
+
