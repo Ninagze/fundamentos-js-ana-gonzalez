@@ -67,7 +67,22 @@ console.log("=== CATÁLOGO ===");
 for (let i = 0; i < productos.length; i++) {
     if (stock [i] === 0) {
         console.log( productos [i]  +    " - " +precios[i].toFixed(2) +" € (AGOTADO)");
-} else{
+    } else{
         console.log (productos[i] +    " - " +  precios[i].toFixed(2) +  " € (" + stock[i]  + " uds)" );
+    }
+}
+
+const ticketProductos  = [];
+const ticketCantidades= [];
+const ticketPrecios = [];  
+
+console.log("=== PROCESANDO PEDIDO ===");
+
+for (let i = 0; i < pedidoProductos.length; i++) {
+    const posicion = buscarProducto(productos, pedidoProductos[i]);
+    if (posicion === -1) {
+        console.log("AVISO: " + pedidoProductos[i] + " no existe en el catálogo");
+    } else if (stock[posicion] === 0) {
+        console.log("AVISO: " + pedidoProductos[i] + " está agotado");
     }
 }
