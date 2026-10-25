@@ -1,0 +1,142 @@
+// Datos fijos 
+const porcentajeIva = 21;
+const precioEnvio = 4.95;
+
+//Funciones 
+
+function calcularImporteLinea(precio, cantidad) {
+    return precio * cantidad;
+}
+
+function calcularIVA(importe) {
+    return importe * (porcentajeIva / 100);
+}
+
+function calcularDescuento(importe) {
+    let descuento = 0;
+
+    if (importe > 100) {
+        descuento = importe * 0.10;
+    } else if (importe > 50) {
+        descuento = importe * 0.05;
+    } else {
+        descuento = 0;
+    }
+
+    return descuento;
+}
+
+function calcularEnvio(importe) {
+    let envio = 0;
+
+    if (importe >= 50) {
+        envio = 0;
+    } else {
+        envio = precioEnvio;
+    }
+
+    return envio;
+}
+
+function buscarProducto(productos, nombre) {
+    let posicion = -1;
+
+    for (let i = 0; i < productos.length; i++) {
+        if (productos[i] === nombre) {
+            posicion = i;
+        }
+    }
+
+    return posicion;
+}
+
+// 6.2 Datos
+
+// Catálogo
+const productos = ["Teclado", "Ratón", "Monitor", "Auriculares", "Webcam"];
+const precios   = [45.99, 19.90, 189.00, 59.95, 34.50];   // sin IVA
+const stock     = [10, 25, 3, 0, 7];
+
+// Pedido del cliente (también arrays paralelos)
+const pedidoProductos  = ["Ratón", "Monitor", "Auriculares", "Teclado", "Altavoz"];
+const pedidoCantidades = [2, 4, 1, 1, 1];
+
+
+console.log("=== CATÁLOGO ===");
+
+for (let i = 0; i < productos.length; i++) {
+    if (stock [i] === 0) {
+        console.log( productos [i]  +    " - " +precios[i].toFixed(2) +" € (AGOTADO)");
+    } else{
+        console.log (productos[i] +    " - " +  precios[i].toFixed(2) +  " € (" + stock[i]  + " uds)" );
+    }
+}
+
+const ticketProductos  = [];
+const ticketCantidades= [];
+const ticketPrecios = [];  
+
+console.log("=== PROCESANDO PEDIDO ===");
+
+for (let i = 0; i < pedidoProductos.length; i++) {
+    const posicion = buscarProducto(productos, pedidoProductos[i]);
+
+    if (posicion === -1) {
+        console.log("AVISO: " + pedidoProductos[i] + " no existe en el catálogo");
+
+    } else if (stock[posicion] === 0) {
+        console.log("AVISO: " + pedidoProductos[i] + " está agotado");
+
+    } else if (stock[posicion] < pedidoCantidades[i]) {
+        console.log("AVISO: solo hay " + stock[posicion] + " uds de " + pedidoProductos[i] + ", se sirven " +  stock[posicion] );
+        ticketProductos.push(pedidoProductos[i]);
+        ticketCantidades.push(stock[posicion]);
+        ticketPrecios.push(precios[posicion]);
+        stock[posicion] = stock[posicion] - stock[posicion];
+    } else {
+        console.log("Se sirven " + pedidoCantidades[i] + " uds de " + pedidoProductos[i]);
+        ticketProductos.push(pedidoProductos[i]);
+        ticketCantidades.push(pedidoCantidades[i]);
+        ticketPrecios.push(precios[posicion]);
+        stock[posicion] = stock[posicion] -  pedidoCantidades[i];
+    }
+}   
+
+console.log("=== TICKET ===");
+
+let subtotal = 0;
+
+for (let j = 0; j < ticketProductos.length; j++) {
+    const importe = calcularImporteLinea(ticketPrecios[j], ticketCantidades[j]);
+    console.log(ticketCantidades[j] + " x " + ticketProductos[j] + " (" + ticketPrecios[j].toFixed(2) + " €) = " + importe.toFixed(2) + " €");
+    subtotal = subtotal + importe;
+}
+const descuento = calcularDescuento(subtotal);
+const base = subtotal - descuento;
+const iva = calcularIVA(base);
+const envio = calcularEnvio(base);
+const total = base + iva + envio;
+
+console.log("Subtotal: " + subtotal.toFixed(2) + " €");
+console.log ("Descuento: -" + descuento.toFixed(2) + " €");
+console.log ("Base imponible: " + base.toFixed(2) + " €");
+console.log ("IVA (21%): " + iva.toFixed(2) + " €");
+console.log("Envío: " + envio.toFixed(2)+ " €");
+console.log("TOTAL: " +total.toFixed(2) + " €");
+
+console.log("=== STOCK ACTUALIZADO ===");
+
+let texto = "";
+
+for (let k = 0; k < productos.length; k++) {
+    texto = texto + productos[k] + ": " + stock[k] + " · ";
+}
+console.log(texto);
+
+console.log("=== PRODUCTOS AGOTADOS ===");
+
+for (let k = 0; k < productos.length; k++) {
+    if (stock[k] === 0) {
+        console.log(productos[k]);
+    }
+}
