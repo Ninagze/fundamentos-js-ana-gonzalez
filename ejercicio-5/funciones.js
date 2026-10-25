@@ -9,8 +9,6 @@ function calcularImporteLinea(precio, cantidad) {
 }
 console.log("Importe de la línea: " + calcularImporteLinea(precio, cantidad).toFixed(2) + "€");
 
-
-
 const porcentajeIva = 10;
 
 function calcularIVA(importe) {
@@ -45,3 +43,16 @@ function calcularEnvio(importe) {
     return envio;
 }
 console.log("Envío: " + calcularEnvio(49.44).toFixed(2) + "€");
+
+function contarAgotados(stock) {
+    let contador = 0;
+
+    for (let i = 0; i < stock.length; i++) {
+        if (stock[i] === 0) {
+            contador++;
+        }
+    }
+
+    return contador;
+}
+console.log("Número de productos agotados: " + contarAgotados([10, 25, 3, 0, 7]));
