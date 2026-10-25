@@ -101,3 +101,13 @@ for (let i = 0; i < pedidoProductos.length; i++) {
         stock[posicion] = stock[posicion] -  pedidoCantidades[i];
     }
 }   
+
+console.log("=== TICKET ===");
+
+let subtotal = 0;
+
+for (let j = 0; j < ticketProductos.length; j++) {
+    const importe = calcularImporteLinea(ticketPrecios[j], ticketCantidades[j]);
+    console.log(ticketCantidades[j] + " x " + ticketProductos[j] + " (" + ticketPrecios[j].toFixed(2) + " €) = " + importe.toFixed(2) + " €");
+    subtotal = subtotal + importe;
+}
