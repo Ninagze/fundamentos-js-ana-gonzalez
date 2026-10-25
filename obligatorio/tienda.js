@@ -111,3 +111,15 @@ for (let j = 0; j < ticketProductos.length; j++) {
     console.log(ticketCantidades[j] + " x " + ticketProductos[j] + " (" + ticketPrecios[j].toFixed(2) + " €) = " + importe.toFixed(2) + " €");
     subtotal = subtotal + importe;
 }
+const descuento = calcularDescuento(subtotal);
+const base = subtotal - descuento;
+const iva = calcularIVA(base);
+const envio = calcularEnvio(base);
+const total = base + iva + envio;
+
+console.log("Subtotal: " + subtotal.toFixed(2) + " €");
+console.log ("Descuento: -" + descuento.toFixed(2) + " €")
+console.log ("Base imponible: " + base.toFixed(2) + " €")
+console.log ("IVA (21%): " + iva.toFixed(2) + " €")
+console.log("Envío: " + envio.toFixed(2)+ " €")
+console.log("TOTAL: " +total.toFixed(2) + " €")
