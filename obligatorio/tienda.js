@@ -80,9 +80,22 @@ console.log("=== PROCESANDO PEDIDO ===");
 
 for (let i = 0; i < pedidoProductos.length; i++) {
     const posicion = buscarProducto(productos, pedidoProductos[i]);
+
     if (posicion === -1) {
         console.log("AVISO: " + pedidoProductos[i] + " no existe en el catálogo");
+
     } else if (stock[posicion] === 0) {
         console.log("AVISO: " + pedidoProductos[i] + " está agotado");
+
+    } else if (stock[posicion] < pedidoCantidades[i]) {
+        console.log("AVISO: solo hay " + stock[posicion] + " uds de " + pedidoProductos[i] + ", se sirven " +  stock[posicion] );
+        ticketProductos.push(pedidoProductos[i]);
+        ticketCantidades.push(stock[posicion]);
+        ticketPrecios.push(precios[posicion]);
+    } else {
+        console.log("Se sirven " + pedidoCantidades[i] + " uds de " + pedidoProductos[i]);
+        ticketProductos.push(pedidoProductos[i]);
+        ticketCantidades.push(pedidoCantidades[i]);
+        ticketPrecios.push(precios[posicion]);
     }
-}
+}   
