@@ -49,3 +49,14 @@ function buscarProducto(productos, nombre) {
 
     return posicion;
 }
+
+// 6.2 Datos
+
+// Catálogo
+const productos = ["Teclado", "Ratón", "Monitor", "Auriculares", "Webcam"];
+const precios   = [45.99, 19.90, 189.00, 59.95, 34.50];   // sin IVA
+const stock     = [10, 25, 3, 0, 7];
+
+// Pedido del cliente (también arrays paralelos)
+const pedidoProductos  = ["Ratón", "Monitor", "Auriculares", "Teclado", "Altavoz"];
+const pedidoCantidades = [2, 4, 1, 1, 1];
