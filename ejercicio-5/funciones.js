@@ -35,3 +35,13 @@ function calcularDescuento(importe) {
 }
 console.log("Descuento: " + calcularDescuento(120).toFixed(2) + "€");
 
+function calcularEnvio(importe) {
+    let envio = 0;
+    if (importe >= 50) {
+        envio = 0;
+    } else {
+        envio = 4.95;
+    }
+    return envio;
+}
+console.log("Envío: " + calcularEnvio(49.44).toFixed(2) + "€");
